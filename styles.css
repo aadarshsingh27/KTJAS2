@@ -88,3 +88,7 @@ header h1 {
         max-width: 300px;
     }
 }
+
+.mode-selector {
+    margin-bottom: 10px;
+}
