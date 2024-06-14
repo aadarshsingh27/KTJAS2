@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const playerONameInput = document.getElementById('player-o-name');
     const playerXDisplay = document.getElementById('player-x-display');
     const playerODisplay = document.getElementById('player-o-display');
+    const gameModeSelector = document.getElementById('game-mode');
 
     let currentPlayer = 'X';
     let gameBoard = [];
@@ -25,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
         X: 'Player X',
         O: 'Player O',
     };
+    let isSoloMode = false;
 
-    // Load scores and names from localStorage
     if (localStorage.getItem('scores')) {
         scores = JSON.parse(localStorage.getItem('scores'));
         updateScores();
@@ -73,12 +74,47 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                 currentTurnElement.textContent = currentPlayer;
+                if (isSoloMode && currentPlayer === 'O') {
+                    setTimeout(computerMove, 500); // Add a slight delay for better UX
+                }
+            }
+        }
+    }
+
+    function computerMove() {
+        let availableCells = [];
+        for (let i = 0; i < boardSize; i++) {
+            for (let j = 0; j < boardSize; j++) {
+                if (gameBoard[i][j] === null) {
+                    availableCells.push({ row: i, col: j });
+                }
+            }
+        }
+
+        if (availableCells.length > 0) {
+            const randomIndex = Math.floor(Math.random() * availableCells.length);
+            const cell = availableCells[randomIndex];
+            gameBoard[cell.row][cell.col] = currentPlayer;
+            const cellElement = document.querySelector(`[data-row='${cell.row}'][data-col='${cell.col}']`);
+            cellElement.textContent = currentPlayer;
+
+            if (checkWin(currentPlayer)) {
+                alert(`${playerNames[currentPlayer]} wins!`);
+                scores[currentPlayer]++;
+                updateScores();
+                saveScores();
+                setTimeout(resetBoard, 5000);
+            } else if (checkTie()) {
+                alert("It's a tie!");
+                setTimeout(resetBoard, 5000);
+            } else {
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                currentTurnElement.textContent = currentPlayer;
             }
         }
     }
 
     function checkWin(player) {
-        // Check rows, columns, and diagonals
         for (let i = 0; i < boardSize; i++) {
             if (gameBoard[i].every(cell => cell === player) || gameBoard.map(row => row[i]).every(cell => cell === player)) {
                 return true;
@@ -155,6 +191,11 @@ document.addEventListener('DOMContentLoaded', () => {
         resetBoard();
     });
 
-    // Initial board setup
+    gameModeSelector.addEventListener('change', (event) => {
+        isSoloMode = event.target.value === 'solo';
+        resetBoard();
+    });
+
     createBoard(boardSize);
 });
+                          
