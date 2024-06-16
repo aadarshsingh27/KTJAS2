@@ -1,15 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
 }
 
 .container {
     text-align: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 header {
@@ -21,29 +25,69 @@ header {
 
 header h1 {
     margin-right: 10px;
+    font-size: 2.5em;
+    color: #333;
 }
 
 .game-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 .game-info {
     margin-bottom: 20px;
 }
 
-.turn-indicator {
-    margin-bottom: 10px;
+input[type="text"] {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    padding: 12px 25px;
+    margin: 5px;
+    border: none;
+    border-radius: 25px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.mode-selector,
+.turn-indicator,
+.scoreboard {
+    margin-bottom: 15px;
 }
 
 .scoreboard {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    gap: 20px;
 }
 
 .score {
-    margin: 0 10px;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#board-size-selector {
+    margin-bottom: 20px;
 }
 
 .board {
@@ -52,6 +96,10 @@ header h1 {
     margin: 20px auto;
     max-width: 400px;
     aspect-ratio: 1 / 1;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .board div {
@@ -59,9 +107,17 @@ header h1 {
     justify-content: center;
     align-items: center;
     background-color: white;
-    border: 1px solid #000;
+    border: 2px solid #ccc;
     font-size: 2em;
     cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    border-radius: 10px;
+}
+
+.board div:hover {
+    background-color: #e9f5ff;
+    border-color: #007bff;
+    transform: scale(1.05);
 }
 
 #reset-modal {
@@ -79,8 +135,9 @@ header h1 {
 .modal-content {
     background-color: white;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 600px) {
@@ -88,7 +145,6 @@ header h1 {
         max-width: 300px;
     }
 }
-
 .mode-selector {
     margin-bottom: 10px;
-}
+    }
