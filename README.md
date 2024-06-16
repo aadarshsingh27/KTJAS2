@@ -1,5 +1,4 @@
 # Tic Tac Toe Game
-# Tic Tac Toe Game
 
 Welcome to the classic Tic Tac Toe game built using HTML, CSS, and JavaScript! This game offers both traditional 3x3 gameplay and the flexibility to choose different board sizes. Enjoy playing against another player or the computer in solo mode!
 
@@ -52,4 +51,30 @@ Welcome to the classic Tic Tac Toe game built using HTML, CSS, and JavaScript! T
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/tic-tac-toe.git
+2. Navigate to the project directory:
+   ```bash
+cd tic-tac-toe
+3. Open index.html in your web browser.
+### How to Play
+1. Choose the board size (3x3, 4x4, or 5x5) from the options.<br>
+2. Enter player names or proceed with default names.<br>
+3. Click on an empty square to make your move.<br>
+4. The game will automatically detect win/tie conditions and reset the board after displaying the result.<br>
+5. Use the reset button to start a new game anytime, with a confirmation modal.<br>
+6. Track your scores on the leaderboard and reset scores if needed.<br>
+7. For solo play, select the "Play Against Computer" option.<br>
+## Contributing
+1. Fork the repository.<br>
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-branch
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add new feature"
+4. Push to the branch:
+   ```bash
+    git push origin feature-branch
+5. Create a pull request.
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
    
