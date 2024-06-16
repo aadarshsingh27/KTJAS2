@@ -75,6 +75,3 @@ Welcome to the classic Tic Tac Toe game built using HTML, CSS, and JavaScript! T
    ```bash
     git push origin feature-branch
 5. Create a pull request.
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-   
