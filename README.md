@@ -53,7 +53,7 @@ Welcome to the classic Tic Tac Toe game built using HTML, CSS, and JavaScript! T
    git clone https://github.com/yourusername/tic-tac-toe.git
 2. Navigate to the project directory:
    ```bash
-cd tic-tac-toe
+   cd tic-tac-toe
 3. Open index.html in your web browser.
 ### How to Play
 1. Choose the board size (3x3, 4x4, or 5x5) from the options.<br>
